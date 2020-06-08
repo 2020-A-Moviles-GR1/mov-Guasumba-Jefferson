@@ -1,0 +1,2 @@
+Restar 
+Parche restar negativos
