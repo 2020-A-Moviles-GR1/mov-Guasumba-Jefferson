@@ -130,7 +130,83 @@ fun main(args:Array<String>){
     }
 
     println(respuestaFilter)
+    println(arregloCumpleanos)
+
+
+    // Any -> OR (Some)
+    // All -> AND (Every)
+    // AND -> TRUE, Todo lo demas falso
+    // OR -> TODO es falso, lo demas era verdadero
+    // 1) Devolver una expresion (TRUE o FALSE)
+    // 2) Devuelve un Booleano
+    // (30, 31, 22, 23, 20)
+    // ("a", "b", "c", "d")
+    // "abcd"
+
+    val respuestaAny = arregloCumpleanos
+            .any { iterador: Int ->
+                return@any iterador < 25
+            }
+    println(respuestaAny)
+
+    val respuestaAll = arregloCumpleanos
+            .all { iterador: Int ->
+                return@all iterador > 65
+            }
+    println(respuestaAll)
+
+    val respuestaReduce: Int = arregloCumpleanos.reduce{ //para promedio, acumulador empieza en o
+
+        acumulador, iteracion ->
+        return@reduce acumulador + iteracion
+
+    }
+    println(respuestaReduce)
+
+    val respuestaFold: Int = arregloCumpleanos.fold( 100, { //acumulador empieza en o
+
+        acumulador, iteracion ->
+        return@fold acumulador - iteracion
+
+    })
+    println(respuestaFold)
+
+    //arregloCumpleanos.reduceRight { i, acc ->  } comienza desde el final
+    //arregloCumpleanos.foldRight() comienza desde el final
+
+
+    //Devoluciones
+    //forEach ->nada
+    //map->arregloe
+    //filter->Arreglo
+    //all->Booleano
+    //any->Booleano
+    //reduce -> valor
+    //fold->valor
+
+
+
+    //Reducir el daño en 20%
+    //18 <
+    // (22,31,33,34,35)
+    val vidaActual = arregloCumpleanos
+            .map { it * 0.8 } // (24, 24.8, 17.7, 18.4, 16)
+            .filter { it > 18 } // (24, 24.8, 18.4)
+            .fold(
+                    100.00,
+                    { acc, d -> acc - d }
+            )
+    println(vidaActual)
+
 }
+
+
+
+
+
+
+
+
 
 //Funciones
 
@@ -152,3 +228,54 @@ fun main(args:Array<String>){
 
     }
 
+
+    //Clases abstractas
+/* //no utilizar
+    abstract class NumerosJava{
+        protected val numeroUno: Int //no es necesario instanciar la propiedad de acceso public por que es por defecto
+        private val numeroDos: Int
+
+        constructor(uno: Int, dos:Int) {
+
+            numeroUno = uno
+            numeroDos = dos
+
+        }
+    }
+
+*/
+abstract class Numeros( //val nuevosNumeros = Numeros(1,2)
+
+        protected val numeroUno: Int,
+        protected val numeroDos: Int
+
+
+){
+
+}
+
+
+class  Suma(
+        uno: Int, //Parametro
+        dos:  Int //Parametro
+):Numeros(uno, dos){
+
+    public fun sumar() : Int{
+
+        return this.numeroUno + this.numeroDos  //values de la clase abastracta-Herencias
+    }
+
+}
+
+class  SumaDos(
+        public var uno: Int, //Propiedades
+        public var dos:  Int //Propiedades
+):Numeros(uno, dos){
+
+    public fun sumar() : Int{
+        this.uno
+        this.dos
+        return this.numeroUno + this.numeroDos  //values de la clase abastracta-Herencias
+    }
+
+}
