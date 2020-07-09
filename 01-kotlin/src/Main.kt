@@ -360,8 +360,6 @@ class SumarDosNumerosDos(
         fun agregarNumero(nuevoNumero: Int){
 
             this.arregloNumeros.add(nuevoNumero)
-
-
         }
 
 
