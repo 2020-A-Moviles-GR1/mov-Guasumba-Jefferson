@@ -1,0 +1,5 @@
+1,Chevrolet,2019-12-12,true,32.22
+2,Ford,2015-12-12,true,12.22
+3,Porshe,2016-12-12,true,33.33
+4,Mazda,2013-12-12,true,35.33
+5,Ferrari,2016-12-12,true,75.33
