@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c34d1307-0bb5-46c9-bf8c-10a77079f8b5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1e9RE1zWc3kJ88hvfYyUoJklTQA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="Moviles_Deber" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c34d1307-0bb5-46c9-bf8c-10a77079f8b5" name="Default Changelist" comment="" />
+      <created>1593731706962</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593731706962</updated>
+      <workItem from="1593731719518" duration="8759000" />
+      <workItem from="1593809409001" duration="1812000" />
+      <workItem from="1593811515261" duration="23140000" />
+      <workItem from="1593901934611" duration="12763000" />
+      <workItem from="1593986399293" duration="13560000" />
+      <workItem from="1594016055288" duration="4658000" />
+      <workItem from="1594194011825" duration="5215000" />
+      <workItem from="1594271539341" duration="20902000" />
+      <workItem from="1594293757536" duration="48000" />
+      <workItem from="1594293917846" duration="47000" />
+      <workItem from="1594293981952" duration="38000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="535" y="0" key="#Auto_Import" timestamp="1593751162549">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="535" y="0" key="#Auto_Import/0.0.1536.824@0.0.1536.824" timestamp="1593751162549" />
+    <state x="249" y="0" key="#Project_Structure" timestamp="1593733810525">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1593733810525" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593754803828">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593754803828" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1594271556605">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594271556605" />
+    <state width="1493" height="619" key="GridCell.Tab.0.bottom" timestamp="1594294019328">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="619" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594294019328" />
+    <state width="1493" height="619" key="GridCell.Tab.0.center" timestamp="1594294019327">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="619" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594294019327" />
+    <state width="1493" height="619" key="GridCell.Tab.0.left" timestamp="1594294019326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="619" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594294019326" />
+    <state width="1493" height="619" key="GridCell.Tab.0.right" timestamp="1594294019328">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="619" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594294019328" />
+    <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1594020716432">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594020716432" />
+    <state width="1493" height="253" key="GridCell.Tab.1.center" timestamp="1594020716432">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1594020716432" />
+    <state width="1493" height="253" key="GridCell.Tab.1.left" timestamp="1594020716432">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1594020716432" />
+    <state width="1493" height="253" key="GridCell.Tab.1.right" timestamp="1594020716432">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1594020716432" />
+    <state x="319" y="59" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594017582162">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="319" y="59" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1594017582162" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1594197643266">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594197643266" />
+  </component>
+</project>
