@@ -25,6 +25,8 @@ class BListViewActivity : AppCompatActivity() {
             listaEntrenadores //lista
 
         )
+
+
         lv_numeros.adapter = adaptador
                 lv_numeros
             .onItemClickListener = AdapterView.OnItemClickListener{
@@ -32,5 +34,23 @@ class BListViewActivity : AppCompatActivity() {
             Log.i("list-view", "Posicion $position")
 
         }
+
+        btn_aniadir_entrenador
+            .setOnClickListener {
+                aniadirEntrenador(adaptador, listaEntrenadores)
+
+            }
+
+
+
+
+
+    }
+
+    fun aniadirEntrenador(adaptador:ArrayAdapter<Entrenador>, listaEntrenadores: ArrayList<Entrenador>){
+
+        listaEntrenadores.add(Entrenador("Jeff" , "Lucero"))
+        adaptador.notifyDataSetChanged()
+
     }
 }
