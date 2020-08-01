@@ -1,5 +1,6 @@
 package com.example.moviles
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,13 +17,13 @@ class IntentEnviaParametros : AppCompatActivity() {
         val numeroEncontrado = intent.getIntExtra(
             "numero", 0
         )
-        if(numeroEncontrado != 0) {
+        if (numeroEncontrado != 0) {
             Log.i("intents", "El numero encontrado es : ${numeroEncontrado}")
         }
 
-        val textoCompartido:String? = intent.getStringExtra(Intent.EXTRA_TEXT)
+        val textoCompartido: String? = intent.getStringExtra(Intent.EXTRA_TEXT)
 
-        if(textoCompartido != null){
+        if (textoCompartido != null) {
             Log.i("intents", "El text es: ${textoCompartido} ")
         }
 
@@ -34,7 +35,31 @@ class IntentEnviaParametros : AppCompatActivity() {
                 finish()
             }
 
+        btn_resp_aceptar.setOnClickListener {
+            val nombre = "Jefferson"
+            val edad = 22
+            val intentRespuesta = Intent()
+            intentRespuesta.putExtra("nombre", nombre)
+            intentRespuesta.putExtra("edad", edad)
+            //this.setResult
 
+            setResult(
+                RESULT_OK,
+                intentRespuesta
+            )
+            finish()
+
+        }
+
+        btn_resp_cancelar.setOnClickListener {
+
+            val intentCancelado = Intent()
+            setResult(
+                Activity.RESULT_CANCELED,
+                intentCancelado
+            )
+            finish()
+        }
 
         }
 }
