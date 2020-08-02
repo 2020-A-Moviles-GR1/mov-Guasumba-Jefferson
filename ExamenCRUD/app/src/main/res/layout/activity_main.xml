@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_ingresarMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Ingresar Marca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ingresarAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Ingresar Auto"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ingresarMarca"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="@+id/btn_ingresarMarca"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ingresarMarca" />
+
+    <Button
+        android:id="@+id/btn_mostrarMarcas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mostrar Marcas"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ingresarAuto"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="@+id/btn_ingresarAuto"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ingresarAuto" />
+
+    <Button
+        android:id="@+id/btn_mostrarAutos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mostrar Autos"
+        app:layout_constraintEnd_toEndOf="@+id/btn_mostrarMarcas"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/btn_mostrarMarcas"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mostrarMarcas" />
+
+    <Button
+        android:id="@+id/btn_modificarMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Modificar Marca"
+        app:layout_constraintEnd_toEndOf="@+id/btn_mostrarAutos"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="@+id/btn_mostrarAutos"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mostrarAutos" />
+
+    <Button
+        android:id="@+id/btn_modificarAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Modificar Auto"
+        app:layout_constraintEnd_toEndOf="@+id/btn_modificarMarca"
+        app:layout_constraintStart_toStartOf="@+id/btn_modificarMarca"
+        app:layout_constraintTop_toBottomOf="@+id/btn_modificarMarca" />
+
+    <Button
+        android:id="@+id/btn_eliminarMarcaM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Eliminar Marca"
+        app:layout_constraintEnd_toEndOf="@+id/btn_modificarAuto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_modificarAuto"
+        app:layout_constraintTop_toBottomOf="@+id/btn_modificarAuto" />
+
+    <Button
+        android:id="@+id/btn_eliminarAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Eliminar Auto"
+        app:layout_constraintEnd_toEndOf="@+id/btn_eliminarMarcaM"
+        app:layout_constraintStart_toStartOf="@+id/btn_eliminarMarcaM"
+        app:layout_constraintTop_toBottomOf="@+id/btn_eliminarMarcaM" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Bienvenido a la Concesionaria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
