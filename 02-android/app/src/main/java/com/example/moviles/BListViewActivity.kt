@@ -47,7 +47,8 @@ class BListViewActivity : AppCompatActivity() {
 
     }
 
-    fun aniadirEntrenador(adaptador:ArrayAdapter<Entrenador>, listaEntrenadores: ArrayList<Entrenador>){
+    fun aniadirEntrenador(adaptador:ArrayAdapter<Entrenador>,
+                          listaEntrenadores: ArrayList<Entrenador>){
 
         listaEntrenadores.add(Entrenador("Jeff" , "Lucero"))
         adaptador.notifyDataSetChanged()

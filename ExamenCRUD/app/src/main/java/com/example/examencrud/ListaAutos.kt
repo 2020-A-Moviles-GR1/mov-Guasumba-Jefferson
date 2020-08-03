@@ -1,45 +1,48 @@
 package com.example.examencrud
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
-import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_lista_autos.*
 import kotlinx.android.synthetic.main.activity_lista_marcas.*
 
-
-class ListaMarcas : AppCompatActivity() {
+class ListaAutos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista_marcas)
+        setContentView(R.layout.activity_lista_autos)
 
-        val listaM = OperacionesMarcaAuto.datosMarcas
 
-        val adapter: ArrayAdapter<Marca> =
-            ArrayAdapter<Marca>(this, android.R.layout.simple_list_item_1, listaM)
 
-        lv_Marcas.setAdapter(adapter);
+        val listaA = OperacionesMarcaAuto.datosAutos
 
-        btn_menu.setOnClickListener {
+        val adapter: ArrayAdapter<Auto> =
+            ArrayAdapter<Auto>(this, android.R.layout.simple_list_item_1, listaA)
+
+        lv_Autos.setAdapter(adapter);
+
+        btn_menuA.setOnClickListener {
 
             irMenu()
         }
 
+
     }
 
 
-fun irMenu() {
-    val intentExplicito = Intent(
-        this,
-        MainActivity::class.java
+    fun irMenu() {
+        val intentExplicito = Intent(
+            this,
+            MainActivity::class.java
 
-    )
+        )
 
-    // this.startActivity(intentExplicito)
-    startActivity(intentExplicito)
+        // this.startActivity(intentExplicito)
+        startActivity(intentExplicito)
 
 
-}
+    }
 
     override fun onStart() {
         super.onStart()
@@ -68,5 +71,4 @@ fun irMenu() {
         super.onDestroy()
         Log.i("Activity", "OnDestroy")
     }
-
 }

@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaMarcas">
+    tools:context=".ListaAutos">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Marcas Registradas"
+        android:layout_marginTop="36dp"
+        android:text="Autos Registrados"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/lv_Marcas"
-        android:layout_width="347dp"
-        android:layout_height="355dp"
-        android:layout_marginTop="76dp"
+        android:id="@+id/lv_Autos"
+        android:layout_width="349dp"
+        android:layout_height="367dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_menu"
+        android:id="@+id/btn_menuA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="476dp"
         android:text="Menu Principal"
-        app:layout_constraintEnd_toEndOf="@+id/lv_Marcas"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/lv_Marcas"
-        app:layout_constraintTop_toBottomOf="@+id/lv_Marcas" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
