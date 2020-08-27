@@ -37,7 +37,7 @@ module.exports = {
     
     pokemons:{//One to many (Plural)
 
-      collection: "pokemon", //Referencia al modelo
+      collection: 'pokemon', //Referencia al modelo
       via: 'usuario' //Nombre Foreing Key en 'Pokemon'
 
 
