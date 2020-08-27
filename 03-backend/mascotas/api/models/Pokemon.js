@@ -18,6 +18,11 @@ module.exports = {
     model: 'usuario',
     required: true //(Es opcional 1 muchos 0 muchos)
 
+   },
+
+   batalla:{
+     model: 'batalla',
+     required: true
    }
 
 
