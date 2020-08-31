@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.beust.klaxon.Klaxon
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
 import kotlinx.android.synthetic.main.activity_http.*
 //import javax.xml.transform.Result
 import com.github.kittinunf.result.Result
@@ -22,6 +23,42 @@ class HttpActivity : AppCompatActivity() {
 
             obtenerUsuarios()
         }
+
+        btn_crear.setOnClickListener {
+            crearUsuario()
+        }
+
+    }
+
+    fun crearUsuario(){
+
+        val url= urlPrincipal + "/Usuario"
+        val parametrosUsuario = listOf(
+            "cedula" to "33242774127",
+            "nombre" to "Jefferson",
+            "correo" to "jeff@hotmail.com",
+            "estadoCivil" to "Casado",
+            "password" to "PASSword1"
+        )
+
+        url.httpPost(parametrosUsuario)
+            .responseString{
+
+                request, response, result ->
+                when(result) {
+                    is Result.Failure -> {
+
+                        val error = result.getException()
+                        Log.i("http-klaxon","Error: ${error}")
+                    }
+                    is Result.Success ->{
+                    val usuarioString = result.get()
+                    Log.i("http-klaxon", "${usuarioString}")
+                }
+                }
+            }
+
+
 
     }
 
