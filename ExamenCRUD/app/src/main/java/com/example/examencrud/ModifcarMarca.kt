@@ -7,11 +7,17 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.fuel.httpPut
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_lista_marcas.*
 import kotlinx.android.synthetic.main.activity_modifcar_marca.*
 import java.time.LocalDate
+import java.util.concurrent.TimeUnit
 
 class ModifcarMarca : AppCompatActivity() {
+    val urlPrincipal = "http://192.168.0.105:1337"
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +32,12 @@ class ModifcarMarca : AppCompatActivity() {
 
         btn_actualizarMarca.setOnClickListener {
 
-            OperacionesMarcaAuto.modificarMarcas(txt_marcaModificar.text.toString(),
-            txt_nuevoIdM.text.toString().toInt(),
-            txt_nuevoMarca.text.toString(),
-            LocalDate.of(txt_nuevoAnioM.text.toString().toInt(), txt_nuevoMesM.text.toString().toInt(), txt_nuevoDiaM.text.toString().toInt())
-            )
 
+
+            modificarMarca(txt_idMparaMod.text.toString(),txt_nuevoMarca.text.toString())
+
+            irMenu()
+            TimeUnit.SECONDS.sleep(3L)
             guardarMarca()
 
         }
@@ -42,6 +48,42 @@ class ModifcarMarca : AppCompatActivity() {
 
 
     }
+
+
+    fun modificarMarca(idM: String, marca: String){
+
+        val url= urlPrincipal + "/marca/"+idM
+        val parametrosMarca = listOf(
+
+            "marcas" to marca
+
+        )
+
+        url.httpPut(parametrosMarca)
+            .responseString{
+
+                    request, response, result ->
+                when(result) {
+                    is Result.Failure -> {
+
+                        val error = result.getException()
+                        Log.i("http-klaxon","Error: ${error}")
+                    }
+                    is Result.Success ->{
+                        val marcaString = result.get()
+                        Log.i("http-klaxon", "${marcaString}")
+                    }
+                }
+            }
+
+
+
+
+
+
+
+    }
+
 
 
 

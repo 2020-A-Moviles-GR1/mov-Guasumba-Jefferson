@@ -3,13 +3,29 @@ package com.example.examencrud
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import androidx.core.os.HandlerCompat.postDelayed
+import com.beust.klaxon.Klaxon
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
+
+    val urlPrincipal = "http://192.168.0.105:1337"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        OperacionesMarcaAuto.datosMarcas.clear()
+        OperacionesMarcaAuto.datosAutos.clear()
+        obtenerMarcas()
+        obtenerAutos()
+
+
 
 
         btn_ingresarMarca.setOnClickListener {
@@ -18,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_mostrarMarcas.setOnClickListener {
+        //TimeUnit.SECONDS.sleep(1L)
+
             irMostrarMarcas()
         }
 
@@ -198,5 +216,128 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+    fun obtenerMarcas() {
+
+        // var listaM: ArrayList<Marca> = arrayListOf()
+        val url = urlPrincipal + "/marca"
+        url
+
+            .httpGet()
+            .responseString { request, response, result ->
+
+                when (result) {
+
+                    is Result.Success -> {
+                        val data = result.get()
+                        Log.i("http-klaxon", "Data: ${data}")
+
+                        val marcas = Klaxon()
+                            .parseArray<Marca>(data)
+
+
+                        if (marcas != null) {
+                            marcas.forEach {
+                                Log.i("http-klaxon", "\nNombre de la marca: ${it.marcas}\n")
+
+
+                                OperacionesMarcaAuto.salvarMarca(
+                                    it.id,
+                                    it.createdAt,
+                                    it.updatedAt,
+                                    it.marcas,
+                                    it.autos
+                                )
+
+
+
+                                if (it.autos is List<*>) {
+
+                                    if (it.autos!!.size > 0) {
+
+
+                                        it.autos!!.forEach {
+
+
+                                            Log.i(
+                                                "http-klaxon",
+                                                "Identificador de marca: ${it.marca}      tipo de auto: ${it.tipo_auto}\n"
+                                            )
+
+                                        }
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+
+                    }
+
+                    is Result.Failure -> {
+                        val ex = result.getException()
+                        Log.i("http-klaxon", "Error: ${ex.message}")
+
+
+                    }
+
+                }
+            }
+
+        //Log.i("http-klaxon", "holaAhi: ${listaM}")
+        //  return listaM
+
+
+    }
+
+    fun obtenerAutos(){
+
+        val url = urlPrincipal + "/auto"
+
+        url
+            .httpGet()
+            .responseString{
+
+                    request, response, result ->
+
+                when(result){
+
+                    is Result.Success ->{
+
+                        val data = result.get()
+
+                        val autos = Klaxon().converter(Auto.convertidor).parseArray<Auto>(data)
+
+                        if(autos != null){
+
+                            autos.forEach{
+
+
+
+                                Log.i("http-klaxon", "Nombre del auto: ${it.tipo_auto}      Marca-Auto: ${it.marca}\n")
+
+                                OperacionesMarcaAuto.salvarAutos(it.id, it.createdAt, it.updatedAt, it.tipo_auto, it.isDisponible, it.costo_auto, it.marca)
+                                
+                            }
+
+                        }
+
+
+
+                    }
+
+                    is Result.Failure ->{
+
+                        val ex = result.getException()
+                        Log.i("http-klaxon", "Error: ${ex.message}")
+                    }
+                }
+
+            }
+
+
+    }
 
 }

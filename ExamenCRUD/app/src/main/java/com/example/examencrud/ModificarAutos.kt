@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
-import kotlinx.android.synthetic.main.activity_modifcar_marca.*
+import com.github.kittinunf.fuel.httpPut
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_modificar_autos.*
 import java.time.LocalDate
+import java.util.concurrent.TimeUnit
 
 class ModificarAutos : AppCompatActivity() {
+    val urlPrincipal = "http://192.168.0.105:1337"
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +32,56 @@ class ModificarAutos : AppCompatActivity() {
         btn_actualizarAuto.setOnClickListener {
 
 
-            OperacionesMarcaAuto.modificarAutos(txt_modeloModificar.text.toString(),
-            txt_nuevoIDMarcaAuto.text.toString().toInt(),
-            txt_nuevoIdAuto.text.toString().toInt(),
-            txt_nuevoModeloA.text.toString(),
-            LocalDate.of(txt_nuevoAnioA.text.toString().toInt(), txt_nuevoMesA.text.toString().toInt(), txt_nuevoDiaA.text.toString().toInt()),
-            validarBooleano(txt_nuevoDisponible.text.toString()),
-            txt_nuevoPrecioA.text.toString().toDouble())
+            modificarAuto(txt_idAutoMod.text.toString(), txt_nuevoIdMarca.text.toString().toInt(),
+            txt_nuevoModeloA.text.toString(), validarBooleano(txt_nuevoDisponible.text.toString()), txt_nuevoPrecioA.text.toString().toDouble())
+
+            irMenu()
+
+            TimeUnit.SECONDS.sleep(4L)
             guardarAuto()
+
         }
 
         btn_menuPrincipalModAuto.setOnClickListener {
             irMenu()
         }
+
+    }
+
+    fun modificarAuto(idA: String, idMarca: Int,  tipoA: String, isDisponible: Boolean, costo: Number){
+
+        val url= urlPrincipal + "/auto/"+idA
+        val parametrosAuto = listOf(
+
+            "marca" to idMarca,
+            "tipo_auto" to tipoA,
+            "isDisponible" to isDisponible,
+            "costo_auto" to costo
+
+        )
+
+        url.httpPut(parametrosAuto)
+            .responseString{
+
+                    request, response, result ->
+                when(result) {
+                    is Result.Failure -> {
+
+                        val error = result.getException()
+                        Log.i("http-klaxon","Error: ${error}")
+                    }
+                    is Result.Success ->{
+                        val autoString = result.get()
+                        Log.i("http-klaxon", "${autoString}")
+                    }
+                }
+            }
+
+
+
+
+
+
 
     }
 
