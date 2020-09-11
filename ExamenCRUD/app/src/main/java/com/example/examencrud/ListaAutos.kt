@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_lista_autos.*
 import kotlinx.android.synthetic.main.activity_lista_marcas.*
 
 class ListaAutos : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_autos)
@@ -71,4 +72,7 @@ class ListaAutos : AppCompatActivity() {
         super.onDestroy()
         Log.i("Activity", "OnDestroy")
     }
+
+
+
 }

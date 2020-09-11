@@ -3,11 +3,17 @@ package com.example.examencrud
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
+import com.github.kittinunf.fuel.httpDelete
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_eliminar_auto.*
 import kotlinx.android.synthetic.main.activity_lista_marcas.*
+import java.util.concurrent.TimeUnit
 
 class EliminarAuto : AppCompatActivity() {
+
+    val urlPrincipal = "http://192.168.0.105:1337"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eliminar_auto)
@@ -21,7 +27,12 @@ class EliminarAuto : AppCompatActivity() {
 
         btn_eliminarAutoV.setOnClickListener {
 
-            OperacionesMarcaAuto.eliminarAuto(txt_identificadorAutoParaEliminar.text.toString().toInt())
+
+            quitarAuto(txt_identificadorAutoParaEliminar.text.toString())
+
+
+            irMenu()
+            TimeUnit.SECONDS.sleep(3L)
 
             eliminarAuto()
         }
@@ -36,6 +47,33 @@ class EliminarAuto : AppCompatActivity() {
 
     }
 
+
+    fun quitarAuto(idA: String){
+
+        val url= urlPrincipal + "/auto/"+idA
+        val parametrosAuto = null
+
+        url.httpDelete(parametrosAuto)
+            .responseString{
+
+                    request, response, result ->
+                when(result) {
+                    is Result.Failure -> {
+
+                        val error = result.getException()
+                        Log.i("http-klaxon","Error: ${error}")
+                    }
+                    is Result.Success ->{
+                        val autoString = result.get()
+                        Log.i("http-klaxon", "${autoString}")
+                    }
+                }
+            }
+
+
+
+
+    }
 
     fun eliminarAuto(){
 

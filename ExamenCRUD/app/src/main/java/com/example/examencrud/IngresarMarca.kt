@@ -7,20 +7,19 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_ingresar_marca.*
 import java.sql.Date
 import java.time.LocalDate
+import java.util.concurrent.TimeUnit
 
 class IngresarMarca : AppCompatActivity() {
 
-    var idMarca: Int = 0
+    val urlPrincipal = "http://192.168.0.105:1337"
+
     var nombreM: String = ""
-    @RequiresApi(Build.VERSION_CODES.O)
-    var fechaM: LocalDate = LocalDate.of(1,1,1)
-    var diaM: Int = 0
-    var mesM : Int = 0
-    var anioM : Int = 0
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingresar_marca)
@@ -29,34 +28,53 @@ class IngresarMarca : AppCompatActivity() {
 
         btn_guardarMarca.setOnClickListener {
 
-            idMarca = txt_identificadorM.text.toString().toInt()
+
 
 
             nombreM = txt_nombreMarca.text.toString()
 
 
-            diaM = txt_diaM.text.toString().toInt()
 
 
+            ingresarMarca(nombreM)
 
-            mesM = txt_mesM.text.toString().toInt()
+            irMenu()
 
-
-            anioM = txt_anioM.text.toString().toInt()
-
-
-
-            fechaM = LocalDate.of(anioM, mesM, diaM)
-
-            ingresarMarca()
+            TimeUnit.SECONDS.sleep(3L)
+            irListaMarca()
         }
 
     }
 
-    fun ingresarMarca(){
+    fun ingresarMarca(nombreM: String){
 
-    OperacionesMarcaAuto.ingresarMarca(idMarca, nombreM, fechaM)
-    irListaMarca()
+        val url= urlPrincipal + "/marca"
+        val parametrosMarca = listOf(
+
+            "marcas" to nombreM
+
+        )
+
+        url.httpPost(parametrosMarca)
+            .responseString{
+
+                    request, response, result ->
+                when(result) {
+                    is Result.Failure -> {
+
+                        val error = result.getException()
+                        Log.i("http-klaxon","Error: ${error}")
+                    }
+                    is Result.Success ->{
+                        val marcaString = result.get()
+                        Log.i("http-klaxon", "${marcaString}")
+                    }
+                }
+            }
+
+
+
+
 
 
 
@@ -97,6 +115,18 @@ class IngresarMarca : AppCompatActivity() {
         val intentExplicito= Intent(
             this,
             ListaMarcas::class.java
+
+        )
+
+        // this.startActivity(intentExplicito)
+        startActivity(intentExplicito)
+    }
+
+    fun irMenu(){
+
+        val intentExplicito= Intent(
+            this,
+            MainActivity::class.java
 
         )
 
