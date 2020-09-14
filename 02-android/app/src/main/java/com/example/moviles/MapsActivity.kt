@@ -14,10 +14,19 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(),
+    OnMapReadyCallback,
+        GoogleMap.OnCameraMoveStartedListener,
+        GoogleMap.OnCameraMoveListener,
+        GoogleMap.OnCameraIdleListener,
+        GoogleMap.OnPolylineClickListener,
+        GoogleMap.OnPolygonClickListener
+
+
+
+{
 
     private lateinit var mMap: GoogleMap
     var tienePermisos=false
@@ -49,6 +58,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         establecerConfiguracionMapa(mMap)
+        establecerListeners(mMap)
         val pintado =LatLng(-0.257022, -78.543200)
         val puntoUsuario =LatLng(-0.258031, -78.544123)
 
@@ -58,8 +68,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         anadirMarcador(pintado, titulo)
         moverCamaraConZoom(puntoUsuario, zoom)
 
+        val poliLineaUno= googleMap.addPolyline(
+            PolylineOptions()
+                .clickable(true)
+                .add(
+                    LatLng(-0.246724, -78.534972),
+                    LatLng(-0.246220, -78.534242),
+                    LatLng(-0.247819, -78.533985),
+                    LatLng(-0.248806, -78.534607)
+                )
+        )
+
+
+        val poligonoUno= googleMap.addPolygon(
+            PolygonOptions()
+                .clickable(true)
+                .add(
+                    LatLng(-0.250008, -78.532075),
+                    LatLng(-0.248688, -78.530863),
+                    LatLng(-0.249171, -78.529554),
+                    LatLng(-0.250673, -78.529254)
+                )
+        )
+
+        poligonoUno.fillColor = 0xc771c4
+
+
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
+       // val sydney = LatLng(-34.0, 151.0)
        // mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
@@ -127,6 +163,38 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             )
 
         }
+    }
+
+    fun establecerListeners(map:GoogleMap){
+        with(map){
+            setOnCameraIdleListener (this@MapsActivity)
+            setOnCameraMoveStartedListener (this@MapsActivity )
+            setOnCameraMoveListener (this@MapsActivity )
+            setOnPolylineClickListener  (this@MapsActivity )
+            setOnPolygonClickListener (this@MapsActivity )
+
+        }
+
+    }
+
+    override fun onCameraMoveStarted(p0: Int) {
+        Log.i("mapa", "Empezando a mover onCameraMoveStarted")
+    }
+
+    override fun onCameraMove() {
+        Log.i("mapa", "Moviendo onCameraMove")
+    }
+
+    override fun onCameraIdle() {
+        Log.i("mapa", "Quieto onCameraIdle")
+    }
+
+    override fun onPolylineClick(p0: Polyline?) {
+        Log.i("mapa", "Polylinea ${p0.toString()}")
+    }
+
+    override fun onPolygonClick(p0: Polygon?) {
+        Log.i("mapa", "Polygono ${p0.toString()}")
     }
 
 

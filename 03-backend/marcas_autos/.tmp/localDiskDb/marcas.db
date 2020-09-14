@@ -1,0 +1,7 @@
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
+{"createdAt":1599638958637,"updatedAt":1599639029546,"id":4,"marcas":"Porshe","_id":4}
+{"marcas":"Ferrari","createdAt":1599640073797,"updatedAt":1599640073797,"id":5,"_id":5}
+{"$$deleted":true,"_id":5}
+{"marcas":"Porshe","createdAt":1599640073797,"updatedAt":1599640234884,"id":5,"_id":5}
+{"$$deleted":true,"_id":5}
+{"$$deleted":true,"_id":4}
