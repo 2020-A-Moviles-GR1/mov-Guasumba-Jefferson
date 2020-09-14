@@ -1,0 +1,12 @@
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
+{"createdAt":1599638988250,"updatedAt":1599639069037,"id":2,"tipo_auto":"Camioneta","isDisponible":true,"costo_auto":123123.33,"marca":2,"_id":2}
+{"createdAt":1599639208915,"updatedAt":1599639208915,"id":3,"tipo_auto":"Sedan","isDisponible":true,"costo_auto":12312.33,"marca":4,"_id":3}
+{"createdAt":1599639297061,"updatedAt":1599639297061,"id":4,"tipo_auto":"Sedan","isDisponible":true,"costo_auto":12321.33,"marca":4,"_id":4}
+{"$$deleted":true,"_id":2}
+{"$$deleted":true,"_id":3}
+{"$$deleted":true,"_id":4}
+{"marca":4,"tipo_auto":"Camioneta","isDisponible":true,"costo_auto":123123.33,"createdAt":1599640136993,"updatedAt":1599640136993,"id":5,"_id":5}
+{"marca":4,"tipo_auto":"Sedan","isDisponible":true,"costo_auto":123213.33,"createdAt":1599640183902,"updatedAt":1599640183902,"id":6,"_id":6}
+{"$$deleted":true,"_id":6}
+{"marca":4,"tipo_auto":"Convertible","isDisponible":true,"costo_auto":12312.77,"createdAt":1599640183902,"updatedAt":1599640282240,"id":6,"_id":6}
+{"$$deleted":true,"_id":6}
